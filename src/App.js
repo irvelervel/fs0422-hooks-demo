@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.css'
+
+// LET'S ADD A STATE TO THIS FUNCTIONAL COMPONENT! WE'LL USE REACT HOOKS
+
+// REACT HOOKS RULES:
+// 1) USE REACT HOOKS JUST IN FUNCTIONAL COMPONENTS!
+// 2) USE REACT HOOKS AT THE TOP LEVEL OF YOUR COMPONENT, BEFORE THE RETURN
+// STATEMENT AND OUTSIDE OF ANY OTHER LOOP, FUNCTION, CONDITION
 
 function App() {
+  // in a class component, it will look like this:
+  // state = {
+  //   counter: 0,
+  //   isLoading: true
+  //   reservations: []
+  // }
+
+  // right here!
+  // counter in this case is the STATE VARIABLE (like a state property in a state object)
+  // setCounter is the ONLY WAY to update counter
+  const [counter, setCounter] = useState(0)
+  // const [isLoading, setIsLoading] = useState(true)
+  // const [reservations, setReservations] = useState([])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App-header" style={{ flexDirection: 'row' }}>
+        <button onClick={() => setCounter(counter - 1)}>-</button>
+        <h3>{counter}</h3>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
