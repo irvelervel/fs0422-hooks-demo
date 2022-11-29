@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import UseEffectExample from './components/UseEffectExample'
+import UseStateExample from './components/UseStateExample'
 
 // LET'S ADD A STATE TO THIS FUNCTIONAL COMPONENT! WE'LL USE REACT HOOKS
 
@@ -19,12 +21,16 @@ function App() {
   // right here!
   // counter in this case is the STATE VARIABLE (like a state property in a state object)
   // setCounter is the ONLY WAY to update counter
-  const [counter, setCounter] = useState(0)
-  // const [isLoading, setIsLoading] = useState(true)
-  // const [reservations, setReservations] = useState([])
+  const [counter, setCounter] = useState(100)
+  const [isLoading, setIsLoading] = useState(true)
+  const [reservations, setReservations] = useState([])
+  // I'm not using directly these 2, it's just for demostrating the
+  // finnicky devTools panel with hooks
 
   return (
     <div className="App">
+      <UseEffectExample />
+      <UseStateExample />
       <header className="App-header" style={{ flexDirection: 'row' }}>
         <button onClick={() => setCounter(counter - 1)}>-</button>
         <h3>{counter}</h3>
